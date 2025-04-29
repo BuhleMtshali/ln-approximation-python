@@ -1,6 +1,5 @@
 import math  # to compare our result with the real value
 
-# 1️⃣ Get valid input from user
 while True:
     try:
         x = float(input("Enter a value for x (must be between -1 and 1, not including -1 or 1): "))
@@ -11,7 +10,7 @@ while True:
     except ValueError:
         print("Please enter a valid number.")
 
-# 2️⃣ Ask user whether they want to set a precision or max terms
+
 choice = input("Do you want to specify a precision? (yes/no): ").strip().lower()
 
 if choice == "yes":
@@ -21,12 +20,12 @@ else:
     precision = None
     max_terms = int(input("Enter maximum number of terms to use: "))
 
-# 3️⃣ Start approximating ln(1 + x)
+
 n = 1
-term = x  # First term
+term = x  
 total = 0.0
 prev_total = 0.0
-diff = float('inf')  # Start with an infinite diff to enter the loop
+diff = float('inf') 
 
 print("\nCalculating ln(1 + x) using series expansion...\n")
 print(f"{'Term':<5}{'Value':>20}{'Running Total':>25}{'Difference':>20}")
@@ -42,7 +41,6 @@ while n <= max_terms and (precision is None or diff >= precision):
     prev_total = total
     n += 1
 
-# 4️⃣ Summary
 actual = math.log(1 + x)
 error = abs(actual - total)
 print("\n" + "="*70)
